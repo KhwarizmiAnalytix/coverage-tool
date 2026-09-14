@@ -173,6 +173,7 @@ def generate_lcov_coverage(build_dir: Path, modules: list[str],
 
     remove_cmd = ["lcov", "--remove", str(coverage_info)]
     remove_cmd.extend(exclude_patterns)
+    remove_cmd.extend(["--ignore-errors", ",".join(cfg["lcov_ignore_errors"])])
     remove_cmd.extend(["--output-file", str(coverage_filtered)])
 
     if verbose:
