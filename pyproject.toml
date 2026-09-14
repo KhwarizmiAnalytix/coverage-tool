@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coverage-tool"
+version = "1.0.0"
+description = "Multi-compiler (GCC/Clang/MSVC) C++ code coverage report generator"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "GPL-3.0-or-later"
+authors = [
+    { name = "KhwarizmiAnalytix" },
+]
+keywords = ["coverage", "lcov", "llvm", "gcov", "cmake", "ctest"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = [
+    "tomli>=2.0; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/KhwarizmiAnalytix/coverage-tool"
+Source = "https://github.com/KhwarizmiAnalytix/coverage-tool"
+Issues = "https://github.com/KhwarizmiAnalytix/coverage-tool/issues"
+
+[project.scripts]
+coverage-tool = "coverage_tool.run_coverage:main"
+coverage-tool-html = "coverage_tool.html_report.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"coverage_tool.html_report" = ["custom.css"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,39 @@
+# Example host-repo config. Copy to the consumer repository root as coverage.toml
+# and adjust filter / modules for that tree.
+#
+#   pip install coverage-tool
+#   coverage-tool --build=build
+
+[coverage]
+# Subfolder that contains library modules (XSigma uses "Library").
+# Use "." for a flat C++ repo (Logging, Parallel, Profiler).
+filter = "Library"
+source_folder = "Library"
+output_format = "html-and-json"
+coverage_report_dir = "coverage_report"
+
+# Optional: name the modules instead of scanning filter/.
+# modules = ["logger", "util", "common"]
+
+[coverage.exclude]
+patterns = [
+    "*ThirdParty*",
+    "*third_party*",
+    "*Testing*",
+    "/usr/*",
+]
+llvm_ignore_regex = [
+    ".*Testing[/\\\\].*",
+    ".*ThirdParty[/\\\\].*",
+    ".*third_party[/\\\\].*",
+]
+
+[coverage.project]
+markers = [".git", ".gitignore", "CMakeLists.txt", "coverage.toml"]
+
+[coverage.tests]
+search_dirs = ["bin", "bin/Debug", "bin/Release", "lib", "tests"]
+patterns = ["*Test*", "*test*", "*CxxTests*"]
+exe_pattern = "{module}CxxTests"
+profraw_pattern = "{module}CxxTests.profraw"
+test_dir_template = "{filter}/{module}/Testing/Cxx"

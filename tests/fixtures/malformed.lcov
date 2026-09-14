@@ -1,0 +1,8 @@
+SF:/src/malformed.cpp
+DA:abc,1
+DA:5,xyz
+DA:10,2
+GARBAGE LINE NOT LCOV AT ALL
+FNF:notanumber
+FNH:1
+end_of_record
