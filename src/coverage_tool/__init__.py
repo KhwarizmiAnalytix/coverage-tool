@@ -10,4 +10,4 @@ from .run_coverage import get_coverage, main
 
 __all__ = ["get_coverage", "main", "HtmlGenerator", "JsonHtmlGenerator"]
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
