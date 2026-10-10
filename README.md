@@ -1,5 +1,8 @@
 # Coverage Tools
 
+[![CI](https://github.com/KhwarizmiAnalytix/coverage-tool/actions/workflows/ci.yml/badge.svg)](https://github.com/KhwarizmiAnalytix/coverage-tool/actions/workflows/ci.yml)
+[![License: GPL v3 / Commercial](https://img.shields.io/badge/license-GPL--3.0--or--later%20%2F%20commercial-blue.svg)](LICENSE)
+
 Code coverage generation for the project. Supports **GCC** (lcov),
 **Clang** (LLVM), and **MSVC** (OpenCppCoverage) with automatic compiler
 detection, and produces consistent HTML and JSON reports across all three.
